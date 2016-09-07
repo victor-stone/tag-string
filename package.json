@@ -1,0 +1,25 @@
+{
+  "name": "tag-string",
+  "version": "1.0.0",
+  "description": "Class for manipulating tags",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victor-stone/tag-string.git"
+  },
+  "keywords": [
+    "tags"
+  ],
+  "author": "Victor Stone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victor-stone/tag-string/issues"
+  },
+  "homepage": "https://github.com/victor-stone/tag-string#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.14.0"
+  }
+}
