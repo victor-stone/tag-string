@@ -1,3 +1,19 @@
+#Install
+
+`npm i https://github.com/victor-stone/tag-string`
+
+#Build
+
+Build reqires
+
+`npm i -g babel`
+
+Then
+
+`npm run build`
+
+#Docs
+
     Manipulate tags 
 
     tag              := ascii alphanumeric and underscore (depending on the 
