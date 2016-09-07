@@ -93,7 +93,7 @@ class TagString
 
     Object.assign(this,{ignore,invalid,separator});
 
-    this._tagsArray = LibArray.from( Array.isArray(src) ? src : TagString.toArray(src,this.opts) );
+    this._tagsArray = Array.isArray(src) ? src.slice() : TagString.toArray(src,this.opts);
   }
 
   
@@ -154,7 +154,7 @@ class TagString
   }
           
   removeAll() {
-    this._tagsArray = LibArray.from([ ]);
+    this._tagsArray = [];
     return this;
   }
            
@@ -179,7 +179,7 @@ class TagString
       return !!this._tagsArray.find(tagsOrFunction);
     }
     var them = TagString.toArray(tagsOrFunction,this.opts);
-    return !!LibArray.from( them ).find( tag => this._tagsArray.includes(tag) );
+    return !!them.find( tag => this._tagsArray.includes(tag) );
   }
 
   containsOne(tag) {
@@ -238,7 +238,7 @@ class TagString
   }
 
   anyInArray(arrayOfStringsToSearch) {
-    return LibArray.from(arrayOfStringsToSearch, s => s.toLowerCase() )
+    return arrayOfStringsToSearch.map( s => s.toLowerCase() )
               .find( this.anyInString.bind(this) );
   }
 

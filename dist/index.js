@@ -108,7 +108,7 @@ var TagString = function () {
 
     Object.assign(this, { ignore: ignore, invalid: invalid, separator: separator });
 
-    this._tagsArray = LibArray.from(Array.isArray(src) ? src : TagString.toArray(src, this.opts));
+    this._tagsArray = Array.isArray(src) ? src.slice() : TagString.toArray(src, this.opts);
   }
 
   /*
@@ -172,7 +172,7 @@ var TagString = function () {
   }, {
     key: 'removeAll',
     value: function removeAll() {
-      this._tagsArray = LibArray.from([]);
+      this._tagsArray = [];
       return this;
     }
   }, {
@@ -204,7 +204,7 @@ var TagString = function () {
         return !!this._tagsArray.find(tagsOrFunction);
       }
       var them = TagString.toArray(tagsOrFunction, this.opts);
-      return !!LibArray.from(them).find(function (tag) {
+      return !!them.find(function (tag) {
         return _this2._tagsArray.includes(tag);
       });
     }
@@ -270,7 +270,7 @@ var TagString = function () {
   }, {
     key: 'anyInArray',
     value: function anyInArray(arrayOfStringsToSearch) {
-      return LibArray.from(arrayOfStringsToSearch, function (s) {
+      return arrayOfStringsToSearch.map(function (s) {
         return s.toLowerCase();
       }).find(this.anyInString.bind(this));
     }
